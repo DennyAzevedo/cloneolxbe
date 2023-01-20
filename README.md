@@ -1,10 +1,17 @@
-# Projeto Treinamento - Clone OLX
+# Projeto Clone do site OLX (Estilizado)
 
-## Desenvolvimento em Node.js
+### Desenvolvido em Node.js (versão 16.x)
 
-### Node versão 16
+Projeto criado durante estudo de Node.js, em curso da B7Web.
 
-Projeto desenvolvido curso _FullStack JS_  
-Da empresa _SoiTech_
+O projeto consiste de um Clone estilizado do BackEnd do site de vendas OLX.
 
-Author: _Denny Paulista Azevedo Filho_
+Projetos do curso [B7Web](https://b7web.com.br/)
+
+**Utilizado em aulas nos cursos:**  
+_Dev FullStack JS da [Soitech](https://www.soitech.com.br/)_  
+_Disciplina Desenvolvimento WEB 2, curso ADS, do [IFSP](https://ifspcaraguatatuba.edu.br/), campus Caraguatatuba_
+
+Autor: **Denny Paulista Azevedo Filho**
+
+_Estes códigos estão sobre a licença_ **MIT**
