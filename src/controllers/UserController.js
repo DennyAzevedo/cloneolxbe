@@ -6,7 +6,7 @@ module.exports = {
 		res.json({ states });
 	},
 	info: async (req, res) => {
-
+		res.json({});
 	},
 	editAction: async (req, res) => {
 
