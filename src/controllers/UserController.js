@@ -27,7 +27,7 @@ module.exports = {
 				images: ads[i].images,
 				dateCreated: ads[i].dateCreated,
 				title: ads[i].title,
-				price: ads[í].price,
+				price: ads[i].price,
 				priceNegotiable: ads[i].priceNegotiable,
 				description: ads[i].description,
 				views: ads[i].views,

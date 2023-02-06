@@ -38,12 +38,10 @@ module.exports = {
 		}
 		const data = matchedData(req);
 
-		const user = await User.findOne({
-			email: data.email
-		});
+		const user = await User.findOne({ email: data.email	});
 		if (user) {
 			res.json({
-				error: {email: {msg: 'E-nail já existe'}}
+				error: {email: {msg: 'E-mail já existe'}}
 			});
 			return;
 		}
