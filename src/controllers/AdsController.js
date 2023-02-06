@@ -1,4 +1,4 @@
-const uuid = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 const jimp = require('jimp');
 const { validationResult, matchedData } = require('express-validator');
 const mongoose = require('mongoose');
@@ -9,7 +9,7 @@ const Category = require('../models/Category');
 const Ad = require('../models/Ad');
 
 const addImage = async (buffer) => {
-	let newName = `${uuid()}.jpg`;
+	let newName = `${uuidv4()}.jpg`;
 	let tmpImg = await jimp.read(buffer);
 	tmpImg.cover(500, 500).quality(80).write(`./public/media/${newName}`);
 	return newName;
@@ -57,8 +57,27 @@ module.exports = {
 		newAd.views = 0;
 		if (req.files && req.files.img) {
 			if (req.files.img.length == undefined) {
-				
+				if (['image/jpeg', 'image/jpg', 'image/png'].includes(req.files.img.mimetype)) {
+					let url = await addImage(req.files.img.data);
+					newAd.images.push({
+						url,
+						default: false
+					});
+				}
+			} else {
+				for (let i = 0; i < req.files.img.length; i++) {
+					if (['image/jpeg', 'image/jpg', 'image/png'].includes(req.files.img[i].mimetype)) {
+						let url = await addImage(req.files.img[i].data);
+						newAd.images.push({
+							url,
+							default: false
+						});
+					}
+				}
 			}
+		}
+		if (newAd.images.length > 0) {
+			newAd.images[0].default = true;
 		}
 		const info = await newAd.save();
 		res.json({ id: info._id });
